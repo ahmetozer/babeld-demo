@@ -2,7 +2,7 @@
 #   Create enviroment for test
 #   ahmetozer.org
 #
-NAMESPACE_COUNT=20
+NAMESPACE_COUNT=${count-"20"}
 
 ###
 # ! I recommend to run this script in temporary container.
@@ -22,7 +22,7 @@ command -v babeld
 if [ $? != 0 ]; then
     export DEBIAN_FRONTEND=noninteractive
     apt update
-    apt install babeld screen -y
+    apt install babeld screen iproute2 -y
 fi
 # Create namespaces
 echo -e "\n\tCreateting namespaces"
